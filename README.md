@@ -104,15 +104,15 @@ Each state shows the light status for M1, M2, and S:
 To implement the Traffic Light Controller in the [VSDSquadronFM](https://www.vlsisystemdesign.com/vsdsquadronfm/) or any FPGA board first we need a [**Verilog HDL**](https://github.com/Ahtesham18112011/Traffic_controller_VSDSquadronFM/blob/main/traffic_controller.v) or VHDL code that is understood by Hardware. So here i will focus on the Verilog HDL code.
 
 ### Analysis of the verilog code
-
-      ```Verilog
-          module Traffic_Light_Controller(
-          input clk, rst,                  // Clock and reset inputs
-          output reg [2:0] light_M1,       // 3-bit signal for M1 (Green, Yellow, Red)
-          output reg [2:0] light_S,        // 3-bit signal for Side road
-          output reg [2:0] light_MT,       // 3-bit signal for Main Through road
-          output reg [2:0] light_M2        // 3-bit signal for M2
-      ); ```
+```verilog
+module Traffic_Light_Controller(
+    input clk, rst,                  // Clock and reset inputs
+    output reg [2:0] light_M1,       // 3-bit signal for M1 (Green, Yellow, Red)
+    output reg [2:0] light_S,        // 3-bit signal for Side road
+    output reg [2:0] light_MT,       // 3-bit signal for Main Through road
+    output reg [2:0] light_M2        // 3-bit signal for M2
+);
+```
 
 ## Steps for implementation in VSDSquadronFM
 
