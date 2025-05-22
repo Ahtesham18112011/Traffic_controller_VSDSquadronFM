@@ -37,6 +37,5 @@ A **traffic light controller using FPGA** is a digital system implemented on a F
 
 ### Applications
 - Urban traffic management.
-- Smart traffic systems with sensor-based adaptive control.
 - Educational projects for learning digital design and FPGA programming.
 
