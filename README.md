@@ -320,7 +320,7 @@ To test, you can use Red,Yellow and Green LEDs. Connect the pins as folows:
 
 This project is licensed under the MIT License - see the [LICENSE](./LICENSE) file for details.
 
-##🧷 Connect with me 🧷
+## Connect with me 🧷
 Connect with me in [Linkedin](https://www.linkedin.com/in/ahtesham-ahmed-779845365/).
 
 
