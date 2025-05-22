@@ -284,22 +284,22 @@ sudo make flash
 ## Testing
 To test, you can use Red,Yellow and Green LEDs. Connect the pins as folows:
 
-|GPIO Pins | Connection to Haedware |
-|----------|----------
-| 42    | Reset     
-|43    | Clock     
-| 44    | LED Red    
-|45    |LED Yellow     
-| 46    | LED Green     
-|47    | LED Red    
-| 48    | LED Yellow     
-|2    | LED Green     
-| 3    | LED Red     
-| 4    | LED Yellow     
-| 6    | LED Green   
-|9    | LED Red     
-| 10    | LED Yellow    
-|12    | LED Green   
+| Signal Name   | Pin Number | Description                                      |
+|---------------|------------|--------------------------------------------------|
+| rst           | 42         | Reset signal (active high) to initialize the FSM to S1 (M1 Green) |
+| clk           | 43         | Clock signal for state transitions and timing    |
+| light_M1[0]   | 44         | Main Road 1 Green (001 when active)              |
+| light_M1[1]   | 45         | Main Road 1 Yellow (010 when active)             |
+| light_M1[2]   | 46         | Main Road 1 Red (100 when active)                |
+| light_MT[0]   | 47         | Main Through Road Green (001 when active)        |
+| light_MT[1]   | 48         | Main Through Road Yellow (010 when active)       |
+| light_MT[2]   | 2          | Main Through Road Red (100 when active)          |
+| light_M2[0]   | 3          | Main Road 2 Green (001 when active)              |
+| light_M2[1]   | 4          | Main Road 2 Yellow (010 when active)             |
+| light_M2[2]   | 6          | Main Road 2 Red (100 when active)                |
+| light_S[0]    | 9          | Side Road Green (001 when active)                |
+| light_S[1]    | 10         | Side Road Yellow (010 when active)               |
+| light_S[2]    | 12         | Side Road Red (100 when active)                  |
 
 >[!NOTE]
 > We need a clock of frequency 1 hertz, this can be generated with an oscillator, 55 timer etc. I have used an Arduino board to generate a clock of frequency 1Hz, if you have an Arduino board, you can copy the 1Hz generatng code from [here](https://github.com/Ahtesham18112011/Traffic_controller_VSDSquadronFM/blob/main/1hertz.ino#L4)
