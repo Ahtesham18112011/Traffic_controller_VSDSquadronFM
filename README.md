@@ -114,7 +114,7 @@ Each state shows the light status for M1, M2, and S:
 
 ## Verilog code for the FPGA
 
-To implement the Traffic Light Controller in the [VSDSquadronFM](https://www.vlsisystemdesign.com/vsdsquadronfm/) or any FPGA board first we need a [**Verilog HDL**](https://github.com/Ahtesham18112011/Traffic_controller_VSDSquadronFM/blob/main/Implementation/traffic_controller.v)r VHDL code that is understood by Hardware. So here i will focus on the Verilog HDL code.
+To implement the Traffic Light Controller in the [VSDSquadronFM](https://www.vlsisystemdesign.com/vsdsquadronfm/) or any FPGA board first we need a [Verilog HDL](https://github.com/Ahtesham18112011/Traffic_controller_VSDSquadronFM/blob/main/Implementation/traffic_controller.v)r VHDL code that is understood by Hardware. So here i will focus on the Verilog HDL code.
 
 ### Analysis of the verilog code
 This Verilog code implements a **Traffic Light Controller** for an FPGA, managing traffic lights at an intersection with four roads: Main Road 1 (M1), Main Road 2 (M2), Main Through Road (MT), and Side Road (S). Each road has three lights (Green, Yellow, Red) controlled by 3-bit signals. The controller uses a **Finite State Machine (FSM)** to cycle through six states, determining which lights are active based on time durations. Below is a detailed explanation of the code:
@@ -302,7 +302,7 @@ To test, you can use Red,Yellow and Green LEDs. Connect the pins as folows:
 |12    | LED Green   
 
 >[!NOTE]
-> We need a clock of frequency 1 hertz, this can be generated with an oscillator, 55 timer etc. I have used an Arduino board to generate a clock of frequency 1Hz, if you have an arduino code, you can copy the 1Hz generatng code from [here](https://github.com/Ahtesham18112011/Traffic_controller_VSDSquadronFM/blob/main/1hertz.ino#L4)
+> We need a clock of frequency 1 hertz, this can be generated with an oscillator, 55 timer etc. I have used an Arduino board to generate a clock of frequency 1Hz, if you have an Arduino board, you can copy the 1Hz generatng code from [here](https://github.com/Ahtesham18112011/Traffic_controller_VSDSquadronFM/blob/main/1hertz.ino#L4)
 
 
 
