@@ -40,4 +40,3 @@ A **traffic light controller using FPGA** is a digital system implemented on a F
 - Smart traffic systems with sensor-based adaptive control.
 - Educational projects for learning digital design and FPGA programming.
 
-If you need a specific example (e.g., VHDL code snippet or a diagram), let me know, and I can provide further details or even generate a chart to visualize the state transitions!
