@@ -20,7 +20,7 @@ A **traffic light controller using FPGA** is a digital system implemented on a F
     
 
 
-### Key Components and Functionality
+## Key Components and Functionality
 1. **FPGA**: A programmable hardware device that allows designers to implement custom digital circuits using hardware description languages (HDL) like VHDL or Verilog.
 2. **State Machine**: The controller typically uses a finite state machine (FSM) to define the sequence of light changes (e.g., Green → Yellow → Red → Green for each direction).
 3. **Timing Control**: Timers are implemented to manage the duration of each light phase (e.g., 30 seconds for green, 5 seconds for yellow).
@@ -281,6 +281,35 @@ make build
 ```shell  
 sudo make flash
 ```
+## Testing
+To test, you can use Red,Yellow and Green LEDs. Connect the pins as folows:
+
+|GPIO Pins | Connection to Haedware |
+|----------|----------
+| 42    | Reset     
+|43    | Clock     
+| 44    | LED Red    
+|45    |LED Yellow     
+| 46    | LED Green     
+|47    | LED Red    
+| 48    | LED Yellow     
+|2    | LED Green     
+| 3    | LED Red     
+| 4    | LED Yellow     
+| 6    | LED Green   
+|9    | LED Red     
+| 10    | LED Yellow    
+|12    | LED Green   
+
+
+
+
+
+
+
+
+
+
 
 *************************************************************************************************************************************************************************************************************************
 
