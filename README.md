@@ -249,7 +249,7 @@ end
 
    ```shell
    git clone https://github.com/Ahtesham18112011/Traffic_controller_VSDSquadronFM.git
-   ```
+    ```
 
 4. Then type,
 
@@ -260,14 +260,14 @@ end
 6. Then type,
 
    ```shell
-     make build
-   ```
+   make build
+    ```
 
 8.  Then connect your VSDSquadronFM board, and type,
 
    ```shell  
    sudo make flash
-   ```
+    ```
 
 
 
