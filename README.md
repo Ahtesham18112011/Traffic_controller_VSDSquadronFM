@@ -103,18 +103,24 @@ Each state shows the light status for M1, M2, and S:
 
 To implement the Traffic Light Controller in the [VSDSquadronFM](https://www.vlsisystemdesign.com/vsdsquadronfm/) or any FPGA board first we need a [**Verilog HDL**](https://github.com/Ahtesham18112011/Traffic_controller_VSDSquadronFM/blob/main/traffic_controller.v) or VHDL code that is understood by Hardware. So here i will focus on the Verilog HDL code.
 
-#### Steps for implementation
+#### Steps for implementation in VSDSquadronFM
 
 1. Open the virtulal Ubuntu Software and open the Linux terminal (Download [Oracle Virtual box](https://www.virtualbox.org/) for virtual Ubuntu software)
 2. Clone my Github repository by typing this in the terminal
 
          git clone https://github.com/Ahtesham18112011/Traffic_controller_VSDSquadronFM.git
 
+3. Then type,
 
+         cd Implementation
 
+4. Then type,
 
+         make build
 
+5.  Then connect your VSDSquadronFM board, and type,
 
+         sudo make flash
 
 
 
