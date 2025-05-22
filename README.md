@@ -108,6 +108,7 @@ To implement the Traffic Light Controller in the [VSDSquadronFM](https://www.vls
 1. Open the virtulal Ubuntu Software and open the Linux terminal (Download [Oracle Virtual box](https://www.virtualbox.org/) for virtual Ubuntu software)
 2. Clone my Github repository by typing this in the terminal
 
+         git clone https://github.com/Ahtesham18112011/Traffic_controller_VSDSquadronFM.git
 
 
 
