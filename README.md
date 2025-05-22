@@ -12,7 +12,7 @@ A **traffic light controller using FPGA** is a digital system implemented on a F
       - [Analysis of the verilog code](#analysis-of-the-verilog-code)
 
     
-4. [Steps for implementation in VSDSquadronFM](#steps-for-implementation-in-vsdsqudronfm)
+4. [Steps for implementation in VSDSquadronFM](#steps-for-implementation-in-vsdsquadronfm)
 
 ### Key Components and Functionality
 1. **FPGA**: A programmable hardware device that allows designers to implement custom digital circuits using hardware description languages (HDL) like VHDL or Verilog.
