@@ -232,38 +232,14 @@ end
 
 ---
 
-### **Traffic Light Cycle**
-The FSM cycles through the states in a fixed sequence:
-1. **S1 (7s)**: Main roads (M1, M2) Green, others Red.
-2. **S2 (2s)**: M1 Green, M2 Yellow (transition), others Red.
-3. **S3 (5s)**: M1 and MT Green, others Red.
-4. **S4 (2s)**: M1 and MT Yellow (transition), others Red.
-5. **S5 (3s)**: Side road Green, others Red.
-6. **S6 (2s)**: Side road Yellow (transition), others Red.
-7. Loops back to S1.
 
-Total cycle time: 7 + 2 + 5 + 2 + 3 + 2 = **21 seconds**.
 
 ---
 
-### **Key Features**
-- **Synchronous Design**: All state transitions occur on the positive edge of the clock, ensuring predictable timing.
-- **Reset Mechanism**: Active-high reset initializes the system to a safe state (S1).
-- **Safety**: The default cases in both sequential and combinational blocks handle unexpected states gracefully.
-- **Timing Control**: The counter ensures precise durations for each state, critical for traffic light operation.
 
----
 
-### **Potential Improvements**
-1. **Clock Scaling**: In a real FPGA, the clock frequency (e.g., 50 MHz) would require a clock divider to convert nanoseconds to seconds, as the current design assumes 1 Hz for simplicity.
-2. **Sensor Inputs**: Add inputs for vehicle or pedestrian sensors to make the system adaptive (e.g., extend green time if traffic is detected).
-3. **Emergency Mode**: Include a mode for emergency vehicles to override the cycle.
-4. **Simulation**: The code assumes 1 cycle = 1 second, which is impractical for FPGA clocks; a prescaler would be needed.
 
----
 
-### **Summary**
-This Verilog module implements a traffic light controller using an FSM with six states to manage four roads' lights. It uses a clock-driven counter for timing and ensures safe transitions with clear Green, Yellow, and Red phases. The design is robust, with reset and default cases, but assumes a simplified 1 Hz clock for timing. For real-world use, additional logic for clock scaling and dynamic control would enhance functionality.
 
 
 ## Steps for implementation in VSDSquadronFM
