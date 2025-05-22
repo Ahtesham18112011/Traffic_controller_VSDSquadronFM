@@ -101,7 +101,9 @@ Each state shows the light status for M1, M2, and S:
 
 ## Implementation in the FPGA
 
-To implement the Traffic Light Controller in the [VSDSquadronFM](https://www.vlsisystemdesign.com/vsdsquadronfm/) or any FPGA board first we need a [**Verilog HDL**](https://github.com/Ahtesham18112011/Traffic_controller_VSDSquadronFM/blob/main/traffic_controller.v) or [**VHDL**](https://github.com/Ahtesham18112011/Traffic_controller_VSDSquadronFM/blob/main/traffic_controller.vhdl) code that is understood by Hardware. So here 
+To implement the Traffic Light Controller in the [VSDSquadronFM](https://www.vlsisystemdesign.com/vsdsquadronfm/) or any FPGA board first we need a [**Verilog HDL**](https://github.com/Ahtesham18112011/Traffic_controller_VSDSquadronFM/blob/main/traffic_controller.v) or [**VHDL**](https://github.com/Ahtesham18112011/Traffic_controller_VSDSquadronFM/blob/main/traffic_controller.vhdl) code that is understood by Hardware. So here i will focus on the Verilog HDL code.
+
+#### Steps for implementation
 
 
 
