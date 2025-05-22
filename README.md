@@ -99,4 +99,20 @@ Each state shows the light status for M1, M2, and S:
 - **TSG (Side Green Timer)**: Duration for S to stay Green.
 
 
+## Implementation in the FPGA
+
+To implement the Traffic Light Controller in the [VSDSquadronFM](https://www.vlsisystemdesign.com/vsdsquadronfm/) or any FPGA board first we need a Verilog or VHDL 
+
+
+
+
+
+
+
+
+
+
+
+
+
 
