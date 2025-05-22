@@ -115,7 +115,8 @@ Each state shows the light status for M1, M2, and S:
 ## Verilog code for the FPGA
 
 To implement the Traffic Light Controller in the [VSDSquadronFM](https://www.vlsisystemdesign.com/vsdsquadronfm/) or any FPGA board first we need a [Verilog HDL](https://github.com/Ahtesham18112011/Traffic_controller_VSDSquadronFM/blob/main/Implementation/traffic_controller.v)r VHDL code that is understood by Hardware. So here i will focus on the Verilog HDL code.
----
+
+***********************************************************************************************************************************************************************************
 ### Analysis of the verilog code
 This Verilog code implements a **Traffic Light Controller** for an FPGA, managing traffic lights at an intersection with four roads: Main Road 1 (M1), Main Road 2 (M2), Main Through Road (MT), and Side Road (S). Each road has three lights (Green, Yellow, Red) controlled by 3-bit signals. The controller uses a **Finite State Machine (FSM)** to cycle through six states, determining which lights are active based on time durations. Below is a detailed explanation of the code:
 
