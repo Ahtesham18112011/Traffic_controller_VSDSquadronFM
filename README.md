@@ -37,7 +37,7 @@ A **traffic light controller using FPGA** is a digital system implemented on a F
 
 ## Traffic light controller Logic
 
-![image](https://github.com/user-attachments/assets/f698f643-a4a2-4a96-9849-6565bd3b7920)
+<img src="https://github.com/user-attachments/assets/f698f643-a4a2-4a96-9849-6565bd3b7920" width="100" />
 
 
 This diagram represents the state transitions of a traffic light controller for an intersection with two main roads (M1 and M2) and a side road (S), implemented using an FPGA. Each state shows the traffic light status (Green, Yellow, Red) for each direction and the transitions between states, labeled with conditions like TMG, TY, and TTG. 
