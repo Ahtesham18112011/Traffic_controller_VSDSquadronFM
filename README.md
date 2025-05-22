@@ -304,7 +304,7 @@ To test, you can use Red,Yellow and Green LEDs. Connect the pins as folows:
 | light_S[2]    | 12         | Side Road Red (100 when active)                  |
 
 >[!NOTE]
-> We need a clock of frequency 1 hertz, this can be generated with an oscillator, 55 timer etc. I have used an Arduino board to generate a clock of frequency 1Hz, if you have an Arduino board, you can copy the 1Hz generatng code from [here](https://github.com/Ahtesham18112011/Traffic_controller_VSDSquadronFM/blob/main/1hertz.ino#L4)
+> We need a clock of frequency 1 hertz, this can be generated with an oscillator, 555 timer etc. I have used an Arduino board to generate a clock of frequency 1Hz, if you have an Arduino board, you can copy the 1Hz generatng code from [here](https://github.com/Ahtesham18112011/Traffic_controller_VSDSquadronFM/blob/main/1hertz.ino#L4)
 
 
 
