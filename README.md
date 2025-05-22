@@ -282,6 +282,7 @@ make build
 ```shell  
 sudo make flash
 ```
+***********************************************************************************************************************************************************************************
 ## Testing
 To test, you can use Red,Yellow and Green LEDs. Connect the pins as folows:
 
