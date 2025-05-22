@@ -104,6 +104,11 @@ Each state shows the light status for M1, M2, and S:
 To implement the Traffic Light Controller in the [VSDSquadronFM](https://www.vlsisystemdesign.com/vsdsquadronfm/) or any FPGA board first we need a [**Verilog HDL**](https://github.com/Ahtesham18112011/Traffic_controller_VSDSquadronFM/blob/main/traffic_controller.v) or VHDL code that is understood by Hardware. So here i will focus on the Verilog HDL code.
 
 ### Analysis of the verilog code
+This Verilog code implements a **Traffic Light Controller** for an FPGA, managing traffic lights at an intersection with four roads: Main Road 1 (M1), Main Road 2 (M2), Main Through Road (MT), and Side Road (S). Each road has three lights (Green, Yellow, Red) controlled by 3-bit signals. The controller uses a **Finite State Machine (FSM)** to cycle through six states, determining which lights are active based on time durations. Below is a detailed explanation of the code:
+
+---
+
+### **Module Declaration**
 ```verilog
 module Traffic_Light_Controller(
     input clk, rst,                  // Clock and reset inputs
@@ -113,6 +118,153 @@ module Traffic_Light_Controller(
     output reg [2:0] light_M2        // 3-bit signal for M2
 );
 ```
+- **Inputs**:
+  - `clk`: Clock signal to synchronize state transitions.
+  - `rst`: Active-high reset signal to initialize the system.
+- **Outputs**:
+  - `light_M1`, `light_M2`, `light_MT`, `light_S`: 3-bit registers for each road's lights, where:
+    - `001` = Green
+    - `010` = Yellow
+    - `100` = Red
+    - `000` = Off (used in the default case for safety).
+
+---
+
+### **Parameters**
+```verilog
+parameter S1=0, S2=1, S3=2, S4=3, S5=4, S6=5;
+parameter sec7=7, sec5=5, sec2=2, sec3=3;
+```
+- **States**: Six states (`S1` to `S6`) represent different phases of the traffic light cycle.
+- **Timers**:
+  - `sec7`: 7 seconds for Main Green phases.
+  - `sec5`: 5 seconds for Through Green phase.
+  - `sec2`: 2 seconds for Yellow transitions.
+  - `sec3`: 3 seconds for Side Green phase.
+- **Assumption**: Each clock cycle is treated as 1 second for simplicity, though in a real FPGA, a clock divider would be used to convert nanoseconds to seconds.
+
+---
+
+### **Internal Registers**
+```verilog
+reg [3:0] count;    // 4-bit counter for timing state durations
+reg [2:0] ps;       // 3-bit register for the present state
+```
+- `count`: Tracks the time spent in each state (up to 15 clock cycles, sufficient for the longest duration of 7 seconds).
+- `ps`: Stores the current state of the FSM (S1 to S6).
+
+---
+
+### **Sequential Logic (State Transitions)**
+```verilog
+always @(posedge clk or posedge rst) begin
+    if (rst == 1) begin
+        ps <= S1;       // Reset to S1
+        count <= 0;     // Reset counter
+    end
+    else begin
+        case (ps)
+            S1: if (count < sec7) begin
+                    ps <= S1;       // Stay in S1
+                    count <= count + 1;
+                end
+                else begin
+                    ps <= S2;       // Move to S2
+                    count <= 0;
+                end
+            ...
+            default: ps <= S1;  // Fallback to S1
+        endcase
+    end
+end
+```
+- **Purpose**: Updates the FSM state (`ps`) and counter (`count`) on each positive clock edge or reset.
+- **Reset Behavior**: If `rst` is high, the FSM resets to state `S1` (M1 and M2 Green), and `count` is cleared.
+- **State Transitions**:
+  - Each state checks the counter against the required duration (e.g., `sec7` for S1).
+  - If the counter is below the duration, the state remains unchanged, and `count` increments.
+  - When the counter reaches the duration, the FSM transitions to the next state, and `count` resets to 0.
+- **State Sequence**:
+  - **S1**: M1 and M2 Green for 7 seconds.
+  - **S2**: M2 transitions to Yellow for 2 seconds.
+  - **S3**: M1 and MT Green for 5 seconds.
+  - **S4**: M1 and MT transition to Yellow for 2 seconds.
+  - **S5**: Side road Green for 3 seconds.
+  - **S6**: Side road Yellow for 2 seconds, then loops back to S1.
+- **Default**: If an invalid state is reached, the FSM returns to `S1`.
+
+---
+
+### **Combinational Logic (Output Control)**
+```verilog
+always @(ps) begin
+    case (ps)
+        S1: begin
+            light_M1 <= 3'b001;  // M1 Green
+            light_M2 <= 3'b001;  // M2 Green
+            light_MT <= 3'b100;  // MT Red
+            light_S  <= 3'b100;  // S Red
+        end
+        ...
+        default: begin
+            light_M1 <= 3'b000;  // All lights off
+            light_M2 <= 3'b000;
+            light_MT <= 3'b000;
+            light_S  <= 3'b000;
+        end
+    endcase
+end
+```
+- **Purpose**: Sets the traffic light outputs based on the current state (`ps`).
+- **Light Encoding**:
+  - `001`: Green
+  - `010`: Yellow
+  - `100`: Red
+  - `000`: Off (default safety state).
+- **State Outputs**:
+  - **S1**: M1 and M2 Green, MT and S Red (Main roads prioritized).
+  - **S2**: M1 Green, M2 Yellow (transition), MT and S Red.
+  - **S3**: M1 and MT Green, M2 and S Red.
+  - **S4**: M1 and MT Yellow (transition), M2 and S Red.
+  - **S5**: S Green, M1, M2, and MT Red (Side road prioritized).
+  - **S6**: S Yellow (transition), M1, M2, and MT Red.
+- **Default**: All lights off to prevent unsafe conditions.
+
+---
+
+### **Traffic Light Cycle**
+The FSM cycles through the states in a fixed sequence:
+1. **S1 (7s)**: Main roads (M1, M2) Green, others Red.
+2. **S2 (2s)**: M1 Green, M2 Yellow (transition), others Red.
+3. **S3 (5s)**: M1 and MT Green, others Red.
+4. **S4 (2s)**: M1 and MT Yellow (transition), others Red.
+5. **S5 (3s)**: Side road Green, others Red.
+6. **S6 (2s)**: Side road Yellow (transition), others Red.
+7. Loops back to S1.
+
+Total cycle time: 7 + 2 + 5 + 2 + 3 + 2 = **21 seconds**.
+
+---
+
+### **Key Features**
+- **Synchronous Design**: All state transitions occur on the positive edge of the clock, ensuring predictable timing.
+- **Reset Mechanism**: Active-high reset initializes the system to a safe state (S1).
+- **Safety**: The default cases in both sequential and combinational blocks handle unexpected states gracefully.
+- **Timing Control**: The counter ensures precise durations for each state, critical for traffic light operation.
+
+---
+
+### **Potential Improvements**
+1. **Clock Scaling**: In a real FPGA, the clock frequency (e.g., 50 MHz) would require a clock divider to convert nanoseconds to seconds, as the current design assumes 1 Hz for simplicity.
+2. **Sensor Inputs**: Add inputs for vehicle or pedestrian sensors to make the system adaptive (e.g., extend green time if traffic is detected).
+3. **Emergency Mode**: Include a mode for emergency vehicles to override the cycle.
+4. **Simulation**: The code assumes 1 cycle = 1 second, which is impractical for FPGA clocks; a prescaler would be needed.
+
+---
+
+### **Summary**
+This Verilog module implements a traffic light controller using an FSM with six states to manage four roads' lights. It uses a clock-driven counter for timing and ensures safe transitions with clear Green, Yellow, and Red phases. The design is robust, with reset and default cases, but assumes a simplified 1 Hz clock for timing. For real-world use, additional logic for clock scaling and dynamic control would enhance functionality.
+
 
 ## Steps for implementation in VSDSquadronFM
 
