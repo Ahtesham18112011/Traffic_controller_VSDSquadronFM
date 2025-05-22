@@ -256,7 +256,7 @@ end
 
 
 
-## Steps for implementation in VSDSquadronFM
+## Steps for implementation in [VSDSquadronFM](https://www.vlsisystemdesign.com/vsdsquadronfm/)
 
 1. Open the virtulal Ubuntu Software and open the Linux terminal (Download [Oracle Virtual box](https://www.virtualbox.org/) for virtual Ubuntu software)
 2. Clone my Github repository by typing this in the terminal
