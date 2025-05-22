@@ -8,8 +8,8 @@ A **traffic light controller using FPGA** is a digital system implemented on a F
 | 1. [Key Components and Functionality](#key-components-and-functionality)    | Funtion of the  Traffic Light Controller    |
 |2. [Traffic light controller Logic](#traffic-light-controller-logic)    | Logic  of  the Traffic Light Controller system     | 
 |3. [Verilog code for the FPGA](#verilog-code-for-the-fpga)             | Verilog code for  Traffic Light Controller      |  
-|[Analysis of the verilog code](#analysis-of-the-verilog-code) | Verilog code analysis|
-|4. [Steps for implementation in VSDSquadronFM](#steps-for-implementation-in-vsdsquadronfm) |Implementaion in the VSDSquadronFM|
+|4.[Analysis of the verilog code](#analysis-of-the-verilog-code) | Verilog code analysis|
+|5. [Steps for implementation in VSDSquadronFM](#steps-for-implementation-in-vsdsquadronfm) |Implementaion in the VSDSquadronFM|
 
 
 
