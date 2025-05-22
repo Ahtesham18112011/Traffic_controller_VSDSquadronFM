@@ -5,11 +5,11 @@ A **traffic light controller using FPGA** is a digital system implemented on a F
 
 |Contents| Summary | 
 |----------|----------|
-|1. [Key Components and Functionality](#key-components-and-functionality)    | Funtion of the  Traffic Light Controller    |
-|2. [Traffic light controller Logic](#traffic-light-controller-logic)    | Logic  of  the Traffic Light Controller system     | 
-|3. [Verilog code for the FPGA](#verilog-code-for-the-fpga)             | Verilog code for  Traffic Light Controller      |  
-|4. [Analysis of the verilog code](#analysis-of-the-verilog-code) | Verilog code analysis|
-|5. [Steps for implementation in VSDSquadronFM](#steps-for-implementation-in-vsdsquadronfm) |Implementaion in the VSDSquadronFM|
+|1. [**Key Components and Functionality**](#key-components-and-functionality)    | Funtion of the  Traffic Light Controller    |
+|2. [**Traffic light controller Logic**](#traffic-light-controller-logic)    | Logic  of  the Traffic Light Controller system     | 
+|3. [**Verilog code for the FPGA**](#verilog-code-for-the-fpga)             | Verilog code for  Traffic Light Controller      |  
+|4. [**Analysis of the verilog code**](#analysis-of-the-verilog-code) | Verilog code analysis|
+|5. [**Steps for implementation in VSDSquadronFM**](#steps-for-implementation-in-vsdsquadronfm) |Implementaion in the VSDSquadronFM|
 
 
 
@@ -301,7 +301,8 @@ To test, you can use Red,Yellow and Green LEDs. Connect the pins as folows:
 | 10    | LED Yellow    
 |12    | LED Green   
 
-
+>[!NOTE]
+> We need a clock of frequency 1 hertz, this can be generated with an oscillator, 55 timer etc. I have used an Arduino board to generate a clock of frequency 1Hz, if you have an arduino code, you can copy the 1Hz generatng code from [here](https://github.com/Ahtesham18112011/Traffic_controller_VSDSquadronFM/blob/main/1hertz.ino#L4)
 
 
 
