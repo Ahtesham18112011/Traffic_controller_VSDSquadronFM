@@ -247,19 +247,19 @@ end
 1. Open the virtulal Ubuntu Software and open the Linux terminal (Download [Oracle Virtual box](https://www.virtualbox.org/) for virtual Ubuntu software)
 2. Clone my Github repository by typing this in the terminal
 
-         git clone https://github.com/Ahtesham18112011/Traffic_controller_VSDSquadronFM.git
+   ```shell  git clone https://github.com/Ahtesham18112011/Traffic_controller_VSDSquadronFM.git ```
 
 3. Then type,
 
-         cd Implementation
+   ```shell   cd Implementation ```
 
 4. Then type,
 
-         make build
+   ```shell   make build ```
 
 5.  Then connect your VSDSquadronFM board, and type,
 
-         sudo make flash
+   ```shell  sudo make flash ```
 
 
 
