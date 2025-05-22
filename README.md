@@ -105,9 +105,9 @@ To implement the Traffic Light Controller in the [VSDSquadronFM](https://www.vls
 
 ### Analysis of the verilog code
 
-``` `timescale 1ns / 1ps
-// Module definition for the Traffic Light Controller using an FPGA
-module Traffic_Light_Controller(
+      ``` `timescale 1ns / 1ps
+      // Module definition for the Traffic Light Controller using an FPGA
+      module Traffic_Light_Controller(
     input clk, rst,                  // Inputs: Clock signal (clk) and Reset signal (rst)
     output reg [2:0] light_M1,       // Output: 3-bit signal controlling lights for Main road 1 (M1: Green, Yellow, Red)
     output reg [2:0] light_S,        // Output: 3-bit signal controlling lights for Side road (S: Green, Yellow, Red)
@@ -115,12 +115,12 @@ module Traffic_Light_Controller(
     output reg [2:0] light_M2        // Output: 3-bit signal controlling lights for Main road 2 (M2: Green, Yellow, Red)
 );
 
-// State parameters for the Finite State Machine (FSM), matching the 6 states in the diagram
-parameter S1=0, S2=1, S3=2, S4=3, S5=4, S6=5;
+      // State parameters for the Finite State Machine (FSM), matching the 6 states in the diagram
+      parameter S1=0, S2=1, S3=2, S4=3, S5=4, S6=5;
 
-// Internal registers
-reg [3:0] count;    // 4-bit counter to track time in each state
-reg [2:0] ps;       // 3-bit register to store the present state of the FSM
+      // Internal registers
+      reg [3:0] count;    // 4-bit counter to track time in each state
+      reg [2:0] ps;       // 3-bit register to store the present state of the FSM
 
 // Timer parameters for state durations (in clock cycles, assuming 1 cycle = 1 second for simplicity)
 parameter sec7=7, sec5=5, sec2=2, sec3=3;  // Durations: 7s (Main Green), 5s (Through Green), 2s (Yellow), 3s (Side Green)
