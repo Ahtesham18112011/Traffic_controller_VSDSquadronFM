@@ -31,7 +31,7 @@ A **traffic light controller using FPGA** is a digital system implemented on a F
 ### Example Workflow
 1. **Design**: Create an FSM in VHDL/Verilog to define light sequences (e.g., Green for 30s, Yellow for 5s, Red for 35s).
 2. **Simulation**: Test the design using tools like ModelSim to verify timing and logic.
-3. **Synthesis**: Use FPGA tools (e.g., Xilinx Vivado, Altera Quartus) to map the design to the FPGA.
+3. **Synthesis**: Use FPGA tools  to map the design to the FPGA.
 4. **Implementation**: Load the design onto the FPGA and connect it to the traffic light hardware.
 5. **Testing**: Verify operation in a real or simulated intersection.
 
