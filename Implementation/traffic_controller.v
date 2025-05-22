@@ -1,6 +1,6 @@
 `timescale 1ns / 1ps
 // Module definition for the Traffic Light Controller using an FPGA
-module Traffic_Light_Controller(
+module top(
     input clk, rst,                  // Inputs: Clock signal (clk) and Reset signal (rst)
     output reg [2:0] light_M1,       // Output: 3-bit signal controlling lights for Main road 1 (M1: Green, Yellow, Red)
     output reg [2:0] light_S,        // Output: 3-bit signal controlling lights for Side road (S: Green, Yellow, Red)
