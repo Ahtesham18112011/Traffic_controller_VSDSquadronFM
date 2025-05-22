@@ -105,7 +105,8 @@ To implement the Traffic Light Controller in the [VSDSquadronFM](https://www.vls
 
 ### Analysis of the verilog code
 
-     ``` module Traffic_Light_Controller(
+      ```verilog
+          module Traffic_Light_Controller(
           input clk, rst,                  // Clock and reset inputs
           output reg [2:0] light_M1,       // 3-bit signal for M1 (Green, Yellow, Red)
           output reg [2:0] light_S,        // 3-bit signal for Side road
