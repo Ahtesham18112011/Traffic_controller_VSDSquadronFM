@@ -3,10 +3,17 @@ A **traffic light controller using FPGA** is a digital system implemented on a F
 
 # Table of contents
 1. [Key Components and Functionality](#key-components-and-functionality)
+
+
 2. [Traffic light controller Logic](#traffic-light-controller-logic)
+
+ 
 3. [Verilog code for the FPGA](#verilog-code-for-fpga)
-     - [Analysis of the verilog code](#analysis-of-the-verilog-code)
-4. [Steps for implementation in VSDSquadronFM](#steps-for-implementation-in-vsdsqudronfm) 
+  - [Analysis of the verilog code](#analysis-of-the-verilog-code)
+
+    
+4. [Steps for implementation in VSDSquadronFM](#steps-for-implementation-in-vsdsqudronfm)
+
 ### Key Components and Functionality
 1. **FPGA**: A programmable hardware device that allows designers to implement custom digital circuits using hardware description languages (HDL) like VHDL or Verilog.
 2. **State Machine**: The controller typically uses a finite state machine (FSM) to define the sequence of light changes (e.g., Green → Yellow → Red → Green for each direction).
