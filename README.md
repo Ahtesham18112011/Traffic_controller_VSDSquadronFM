@@ -35,7 +35,63 @@ A **traffic light controller using FPGA** is a digital system implemented on a F
 4. **Implementation**: Load the design onto the FPGA and connect it to the traffic light hardware.
 5. **Testing**: Verify operation in a real or simulated intersection.
 
-### Applications
-- Urban traffic management.
-- Educational projects for learning digital design and FPGA programming.
+## Traffic light controller Logic
+
+![image](https://github.com/user-attachments/assets/f698f643-a4a2-4a96-9849-6565bd3b7920)
+
+
+This diagram represents the state transitions of a traffic light controller for an intersection with two main roads (M1 and M2) and a side road (S), implemented using an FPGA. Each state shows the traffic light status (Green, Yellow, Red) for each direction and the transitions between states, labeled with conditions like TMG, TY, and TTG. 
+
+### Intersection Layout
+- **M1 and M2**: Two main roads, likely in opposite directions (e.g., North-South and East-West).
+- **S**: A side road intersecting the main roads.
+- Traffic lights control the flow in each direction, with M1 and M2 typically prioritized over S.
+
+### State Descriptions
+Each state shows the light status for M1, M2, and S:
+- **Green (G)**: Vehicles can go.
+- **Yellow (Y)**: Transition phase, prepare to stop.
+- **Red (R)**: Vehicles must stop.
+
+#### 1. **Top Row (Left to Right)**
+- **State 1 (TMG)**: 
+  - M1: Green (vehicles on M1 can go).
+  - M2: Red (vehicles on M2 must stop).
+  - S: Red (vehicles on S must stop).
+  - **Transition (TMG)**: Stays in this state for a "Main Green Timer" (TMG) duration, ensuring M1 has enough time for traffic flow.
+- **State 2 (TY)**:
+  - M1: Yellow (M1 traffic prepares to stop).
+  - M2: Red.
+  - S: Red.
+  - **Transition (TY)**: After TMG expires, M1 switches to Yellow for a "Yellow Timer" (TY) duration as a transition phase.
+- **State 3 (TTG)**:
+  - M1: Red.
+  - M2: Green (M2 traffic can now go).
+  - S: Red.
+  - **Transition (TTG)**: After TY expires, M2 gets a "Through Traffic Green" (TTG) timer, allowing M2 traffic to flow.
+
+#### 2. **Bottom Row (Left to Right)**
+- **State 4 (TY)**:
+  - M1: Yellow.
+  - M2: Yellow (M2 traffic prepares to stop).
+  - S: Red.
+  - **Transition (TY)**: After TTG expires, M2 switches to Yellow for the TY duration.
+- **State 5 (TSG)**:
+  - M1: Red.
+  - M2: Red.
+  - S: Green (side road traffic can now go).
+  - **Transition (TSG)**: After TY expires, S gets a "Side Green Timer" (TSG), allowing side road traffic to flow.
+- **State 6 (TY)**:
+  - M1: Red.
+  - M2: Red.
+  - S: Yellow (S traffic prepares to stop).
+  - **Transition (TY)**: After TSG expires, S switches to Yellow for the TY duration, then loops back to State 1 (M1 Green).
+
+### Transition Conditions
+- **TMG (Main Green Timer)**: Duration for M1 to stay Green.
+- **TY (Yellow Timer)**: Duration for the Yellow phase during transitions.
+- **TTG (Through Traffic Green)**: Duration for M2 to stay Green.
+- **TSG (Side Green Timer)**: Duration for S to stay Green.
+
+
 
