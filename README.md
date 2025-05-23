@@ -321,5 +321,8 @@ To test, you can use Red,Yellow and Green LEDs. Connect the pins as folows:
 This project is licensed under the MIT License - see the [LICENSE](./LICENSE) file for details.
 
 ## Connect with me 
-Connect with me in[<img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/linkedin/linkedin-original.svg" width="30"/>](https://www.linkedin.com/in/ahtesham-ahmed-779845365/)
+Connect with me in
+
+
+[<img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/linkedin/linkedin-original.svg" width="30"/>](https://www.linkedin.com/in/ahtesham-ahmed-779845365/)
 
